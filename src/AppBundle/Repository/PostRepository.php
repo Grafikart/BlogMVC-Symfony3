@@ -18,10 +18,12 @@ class PostRepository extends \Doctrine\ORM\EntityRepository
      * Add a fetchmode Eager for categories
      * @return \Doctrine\ORM\QueryBuilder
      */
-    public function createQueryBuilderWithCategory () {
+    public function createQueryBuilderWithCategory ($category = null) {
         return $this->createQueryBuilder("p")
             ->leftJoin("p.category", "c")
             ->addSelect("c")
+            ->where("c = :category")
+            ->setParameter("category", $category)
             ->orderBy("p.createdAt", "DESC");
     }
 
