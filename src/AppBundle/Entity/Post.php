@@ -123,7 +123,7 @@ class Post
      * Set slug
      *
      * @param string $slug
-     * @Assert\NotBlank()
+     *
      * @return Post
      */
     public function setSlug($slug)
