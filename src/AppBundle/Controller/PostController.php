@@ -107,7 +107,7 @@ class PostController extends Controller
     public function categoryAction(Request $request, Category $category)
     {
         $em = $this->getDoctrine()->getManager();
-        $query = $em->getRepository('AppBundle:Post')->createQueryBuilderWithUser()
+        $query = $em->getRepository('AppBundle:Post')->createQueryBuilderWithCategory($category)
             ->orderBy("p.createdAt", "DESC")
             ->getQuery();
 
