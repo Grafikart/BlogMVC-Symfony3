@@ -4,12 +4,29 @@ parameters:
 #    parameter_name: value
 
 services:
-  app.excerpt_extension:
+  _defaults:
+      autowire: true
+      autoconfigure: true
+      public: false
+      
+  app.markdownTwigExtension:
     class: AppBundle\Twig\TwigExtension
-    public: false
-#    autowire: true
+    arguments:
+      $markdown_parser: '@cebe.githubMarkdown'
+    public: true
     tags:
       - { name: twig.extension }
+  
+  cebe.githubMarkdown:
+    class: cebe\markdown\GithubMarkdown
+    public: true
+  
+#  app.excerpt_extension:
+#    class: AppBundle\Twig\TwigExtension
+#    public: false
+#    autowire: true
+#    tags:
+#      - { name: twig.extension }
   app.counter_subscriber:
     class: AppBundle\EventListener\CounterSubscriber
     tags:
