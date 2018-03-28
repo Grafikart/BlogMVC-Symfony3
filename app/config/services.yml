@@ -7,7 +7,7 @@ services:
   app.excerpt_extension:
     class: AppBundle\Twig\TwigExtension
     public: false
-    autowire: true
+#    autowire: true
     tags:
       - { name: twig.extension }
   app.counter_subscriber:

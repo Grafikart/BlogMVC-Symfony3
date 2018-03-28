@@ -12,8 +12,8 @@ class TwigExtension extends \Twig_Extension
      * TwigExtension constructor.
      * @param $markdown_parser
      */
-    public function __construct(GithubMarkdown $markdown_parser) {
-        $this->parser = $markdown_parser;
+    public function __construct() {
+      $this->parser = new GithubMarkdown();
     }
 
     public function getFilters()
