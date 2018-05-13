@@ -11,7 +11,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component
 /**
  * Post controller.
  *
- * @Route("post", name="admin")
+ * @Route("post", name="")
  */
 class PostController extends Controller
 {

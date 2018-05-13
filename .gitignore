@@ -1,5 +1,6 @@
 .idea
 *.iml
+.web-server-pid
 /app/config/parameters.yml
 /build/
 /phpunit.xml

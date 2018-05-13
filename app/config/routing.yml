@@ -8,4 +8,4 @@ admin:
     prefix:   /admin
 
 logout:
-  path: /logout
+    path: /logout
