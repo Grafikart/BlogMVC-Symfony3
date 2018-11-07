@@ -11,14 +11,14 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component
 /**
  * Post controller.
  *
- * @Route("post", name="admin")
+ * @Route("post", name="admin_")
  */
 class PostController extends Controller
 {
     /**
      * Lists all post entities.
      *
-     * @Route("/", name="admin_post_index")
+     * @Route("/", name="post_index")
      * @Method("GET")
      */
     public function indexAction(Request $request)
@@ -51,7 +51,7 @@ class PostController extends Controller
     /**
      * Creates a new post entity.
      *
-     * @Route("/new", name="admin_post_new")
+     * @Route("/new", name="post_new")
      * @Method({"GET", "POST"})
      */
     public function newAction(Request $request)
@@ -80,7 +80,7 @@ class PostController extends Controller
     /**
      * Displays a form to edit an existing post entity.
      *
-     * @Route("/{id}/edit", name="admin_post_edit")
+     * @Route("/{id}/edit", name="post_edit")
      * @Method({"GET", "POST"})
      */
     public function editAction(Request $request, Post $post)
@@ -105,7 +105,7 @@ class PostController extends Controller
     /**
      * Deletes a post entity.
      *
-     * @Route("/{id}", name="admin_post_delete")
+     * @Route("/{id}", name="post_delete")
      * @Method("DELETE")
      */
     public function deleteAction(Request $request, Post $post)

@@ -2,8 +2,10 @@
 namespace AppBundle\Twig;
 
 use cebe\markdown\GithubMarkdown;
+use Twig\Extension\AbstractExtension;
+use Twig\TwigFilter;
 
-class TwigExtension extends \Twig_Extension
+class TwigExtension extends AbstractExtension
 {
 
     private $parser;
@@ -19,8 +21,8 @@ class TwigExtension extends \Twig_Extension
     public function getFilters()
     {
         return [
-            new \Twig_SimpleFilter('excerpt', [$this, 'excerptFilter']),
-            new \Twig_SimpleFilter('markdown', [$this, 'markdownFilter'], ['is_safe' => ['all']])
+            new TwigFilter('excerpt', [$this, 'excerptFilter']),
+            new TwigFilter('markdown', [$this, 'markdownFilter'], ['is_safe' => ['all']])
         ];
     }
 

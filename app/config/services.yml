@@ -4,13 +4,18 @@ parameters:
 #    parameter_name: value
 
 services:
-  app.excerpt_extension:
-    class: AppBundle\Twig\TwigExtension
-    public: false
-    autowire: true
-    tags:
-      - { name: twig.extension }
-  app.counter_subscriber:
-    class: AppBundle\EventListener\CounterSubscriber
-    tags:
-      - { name: doctrine.event_subscriber, connection: default }
+
+    cebe\markdown\GithubMarkdown: ~
+
+    AppBundle\Twig\TwigExtension:
+        arguments: ['@cebe\markdown\GithubMarkdown']
+        tags: ['twig.extension']
+
+    app.counter_subscriber:
+        class: AppBundle\EventListener\CounterSubscriber
+        tags:
+            - { name: doctrine.event_subscriber, connection: default }
+
+    AppBundle\DataFixtures\:
+        resource: '../../src/AppBundle/DataFixtures'
+        tags: ['doctrine.fixture.orm']
